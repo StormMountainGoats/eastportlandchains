@@ -2,6 +2,9 @@ const inventoryConfig = {
   divisionInStock: true
 };
 
+const formsWorkerUrl =
+  "https://east-portland-chains-forms.cerimelton.workers.dev";
+
 /*
   Shared helpers
 */
@@ -46,6 +49,97 @@ function focusFirstInvalidField(form) {
 
   if (firstInvalidField) {
     firstInvalidField.focus();
+  }
+}
+
+function getTurnstileToken(form) {
+  const tokenField = form.querySelector(
+    'input[name="cf-turnstile-response"]'
+  );
+
+  return tokenField ? tokenField.value : "";
+}
+
+function resetTurnstile() {
+  if (
+    window.turnstile &&
+    typeof window.turnstile.reset === "function"
+  ) {
+    window.turnstile.reset();
+  }
+}
+
+function formDataToObject(form) {
+  const formData = new FormData(form);
+  const submittedFields = {};
+
+  for (const [name, value] of formData.entries()) {
+    if (name === "cf-turnstile-response") {
+      continue;
+    }
+
+    submittedFields[name] = value;
+  }
+
+  return submittedFields;
+}
+
+async function submitFormToWorker(form, formType) {
+  const turnstileToken = getTurnstileToken(form);
+
+  if (!turnstileToken) {
+    throw new Error(
+      "Please complete the security check before submitting."
+    );
+  }
+
+  const response = await fetch(formsWorkerUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      formType,
+      turnstileToken,
+      fields: formDataToObject(form)
+    })
+  });
+
+  let result;
+
+  try {
+    result = await response.json();
+  } catch {
+    throw new Error(
+      "The server returned an unexpected response. Please try again."
+    );
+  }
+
+  if (!response.ok || !result.success) {
+    throw new Error(
+      result.message ||
+        "The form could not be submitted. Please try again."
+    );
+  }
+
+  return result;
+}
+
+function setSubmitButtonState(button, submitting) {
+  if (!button) {
+    return;
+  }
+
+  if (submitting) {
+    button.dataset.originalText = button.textContent;
+    button.textContent = "Submitting...";
+    button.disabled = true;
+  } else {
+    button.textContent =
+      button.dataset.originalText || button.textContent;
+
+    button.disabled = false;
+    delete button.dataset.originalText;
   }
 }
 
@@ -118,6 +212,10 @@ if (orderForm) {
     "#order-form-status"
   );
 
+  const submitButton = orderForm.querySelector(
+    'button[type="submit"]'
+  );
+
   function clearPaymentSelection() {
     paymentOptions.forEach((option) => {
       option.checked = false;
@@ -183,7 +281,6 @@ if (orderForm) {
 
     setElementsDisabled(pickupFields, !isPickup);
     setElementsDisabled(shippingFields, isPickup);
-
     setElementsDisabled(pickupPaymentOptions, !isPickup);
     setElementsDisabled(shippingPaymentOptions, isPickup);
 
@@ -218,7 +315,7 @@ if (orderForm) {
     hideFormStatus(orderFormStatus);
   });
 
-  orderForm.addEventListener("submit", (event) => {
+  orderForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     hideFormStatus(orderFormStatus);
 
@@ -228,11 +325,23 @@ if (orderForm) {
       return;
     }
 
-    showFormStatus(
-      orderFormStatus,
-      "The form is working correctly. Secure submission and confirmation email delivery will be connected next.",
-      "success"
-    );
+    setSubmitButtonState(submitButton, true);
+
+    try {
+      await submitFormToWorker(orderForm, "order");
+
+      window.location.href = "confirmation.html";
+    } catch (error) {
+      showFormStatus(
+        orderFormStatus,
+        error.message ||
+          "The order request could not be submitted. Please try again.",
+        "error"
+      );
+
+      resetTurnstile();
+      setSubmitButtonState(submitButton, false);
+    }
   });
 
   updateFulfillmentFields();
@@ -268,11 +377,15 @@ if (waitlistForm) {
       "#waitlist-form-status"
     );
 
+    const submitButton = waitlistForm.querySelector(
+      'button[type="submit"]'
+    );
+
     waitlistForm.addEventListener("input", () => {
       hideFormStatus(waitlistFormStatus);
     });
 
-    waitlistForm.addEventListener("submit", (event) => {
+    waitlistForm.addEventListener("submit", async (event) => {
       event.preventDefault();
       hideFormStatus(waitlistFormStatus);
 
@@ -282,11 +395,23 @@ if (waitlistForm) {
         return;
       }
 
-      showFormStatus(
-        waitlistFormStatus,
-        "The waitlist form is working correctly. Secure submission and restock-notification storage will be connected next.",
-        "success"
-      );
+      setSubmitButtonState(submitButton, true);
+
+      try {
+        await submitFormToWorker(waitlistForm, "waitlist");
+
+        window.location.href = "confirmation.html";
+      } catch (error) {
+        showFormStatus(
+          waitlistFormStatus,
+          error.message ||
+            "The waitlist request could not be submitted. Please try again.",
+          "error"
+        );
+
+        resetTurnstile();
+        setSubmitButtonState(submitButton, false);
+      }
     });
   }
 }

@@ -10,7 +10,11 @@
     name="description"
     content="Join the restock waitlist for The Division bike security chain."
   >
-
+<script
+  src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+  async
+  defer
+></script>
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
@@ -145,7 +149,11 @@
           <p class="form-privacy">
             Your information will only be used for this restock notification.
           </p>
-
+<div
+  class="cf-turnstile"
+  data-sitekey="0x4AAAAAAD521rPzq1whVGo3"
+  data-theme="auto"
+></div>
           <div
             class="form-status"
             id="waitlist-form-status"
