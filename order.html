@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Order The Division | East Portland Chains</title>
+
+  <meta
+    name="description"
+    content="Submit an order request for The Division bike security chain from East Portland Chains."
+  >
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">
+    Skip to main content
+  </a>
+
+  <header class="site-header">
+    <a class="site-logo" href="index.html">
+      East Portland Chains
+    </a>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="division.html">Division</a>
+      <a href="faq.html">FAQ</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section
+      class="order-page"
+      aria-labelledby="order-page-heading"
+    >
+      <div class="order-page-inner">
+        <p class="section-label">Order The Division</p>
+
+        <h1 id="order-page-heading">
+          Submit an order request.
+        </h1>
+
+        <p class="order-page-intro">
+          Choose your configuration, fulfillment method, and preferred payment
+          method. I’ll review the request and follow up within two business days
+          to confirm availability and next steps.
+        </p>
+
+        <form
+          class="order-form"
+          id="division-order-form"
+        >
+          <fieldset>
+            <legend>Choose your configuration</legend>
+
+            <label class="form-option">
+              <input
+                type="radio"
+                name="configuration"
+                value="Chain only, $70"
+                required
+              >
+
+              <span>
+                <strong>Chain only, $70</strong>
+
+                <small>
+                  Bring your own compatible padlock with an 8 mm or smaller
+                  shackle.
+                </small>
+              </span>
+            </label>
+
+            <label class="form-option">
+              <input
+                type="radio"
+                name="configuration"
+                value="Chain + Padlock, $95"
+                required
+              >
+
+              <span>
+                <strong>Chain + Padlock, $95</strong>
+
+                <small>
+                  Padlock model may vary based on availability.
+                </small>
+              </span>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Contact information</legend>
+
+            <div class="form-grid">
+              <label>
+                Name
+
+                <input
+                  type="text"
+                  name="fullName"
+                  autocomplete="name"
+                  required
+                >
+              </label>
+
+              <label>
+                Email address
+
+                <input
+                  type="email"
+                  name="email"
+                  autocomplete="email"
+                  required
+                >
+              </label>
+
+              <label>
+                Phone number
+
+                <input
+                  type="tel"
+                  name="phone"
+                  autocomplete="tel"
+                  required
+                >
+              </label>
+
+              <label>
+                Preferred phone contact
+
+                <select
+                  name="phoneContactPreference"
+                  required
+                >
+                  <option value="">Choose one</option>
+                  <option value="Text message">Text message</option>
+                  <option value="Phone call">Phone call</option>
+                  <option value="Either text or phone call">
+                    Either text or phone call
+                  </option>
+                </select>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Fulfillment method</legend>
+
+            <label class="form-option">
+              <input
+                type="radio"
+                name="fulfillment"
+                value="Local pickup or handoff"
+                required
+              >
+
+              <span>
+                <strong>Local pickup or handoff</strong>
+
+                <small>
+                  Choose a general pickup window below. Exact timing and public
+                  meeting location will be confirmed afterward.
+                </small>
+              </span>
+            </label>
+
+            <label class="form-option">
+              <input
+                type="radio"
+                name="fulfillment"
+                value="Shipping within the contiguous United States"
+                required
+              >
+
+              <span>
+                <strong>
+                  Shipping within the contiguous United States
+                </strong>
+
+                <small>
+                  Actual shipping cost will be calculated and added to the final
+                  invoice.
+                </small>
+              </span>
+            </label>
+          </fieldset>
+
+          <section
+            class="conditional-section"
+            id="pickup-fields"
+            aria-labelledby="pickup-window-heading"
+            hidden
+          >
+            <fieldset>
+              <legend id="pickup-window-heading">
+                Preferred pickup window
+              </legend>
+
+              <label>
+                General handoff window
+
+                <select name="pickupWindow">
+                  <option value="">Choose one</option>
+
+                  <option value="Tuesday midday, downtown Portland">
+                    Tuesday midday, downtown Portland
+                  </option>
+
+                  <option value="Tuesday late afternoon, along SE Division">
+                    Tuesday late afternoon, along SE Division
+                  </option>
+
+                  <option value="Thursday or Friday midday, outer East Portland">
+                    Thursday or Friday midday, outer East Portland
+                  </option>
+
+                  <option value="Weekend, schedule permitting">
+                    Weekend, schedule permitting
+                  </option>
+
+                  <option value="Other scheduling needs">
+                    Other scheduling needs
+                  </option>
+                </select>
+              </label>
+
+              <label>
+                Scheduling notes
+
+                <textarea
+                  name="schedulingNotes"
+                  rows="5"
+                  placeholder="Share any scheduling details or other needs here."
+                ></textarea>
+              </label>
+            </fieldset>
+          </section>
+
+          <section
+            class="conditional-section"
+            id="shipping-fields"
+            aria-labelledby="shipping-address-heading"
+            hidden
+          >
+            <fieldset>
+              <legend id="shipping-address-heading">
+                Shipping address
+              </legend>
+
+              <div class="form-grid">
+                <label class="form-grid-wide">
+                  Street address
+
+                  <input
+                    type="text"
+                    name="shippingAddress"
+                    autocomplete="shipping street-address"
+                  >
+                </label>
+
+                <label>
+                  Apartment, suite, or unit
+
+                  <input
+                    type="text"
+                    name="shippingAddressLine2"
+                    autocomplete="shipping address-line2"
+                  >
+                </label>
+
+                <label>
+                  City
+
+                  <input
+                    type="text"
+                    name="shippingCity"
+                    autocomplete="shipping address-level2"
+                  >
+                </label>
+
+                <label>
+                  State
+
+                  <select
+                    name="shippingState"
+                    autocomplete="shipping address-level1"
+                    aria-describedby="shipping-availability"
+                  >
+                    <option value="">Choose one</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                  </select>
+                </label>
+
+                <label>
+                  ZIP code
+
+                  <input
+                    type="text"
+                    name="shippingZip"
+                    inputmode="numeric"
+                    autocomplete="shipping postal-code"
+                    pattern="[0-9]{5}(-[0-9]{4})?"
+                    title="Enter a five-digit ZIP code or ZIP+4."
+                    aria-describedby="shipping-availability"
+                  >
+                </label>
+              </div>
+
+              <p
+                class="form-help"
+                id="shipping-availability"
+              >
+                Shipping is currently available only within the contiguous
+                United States.
+              </p>
+            </fieldset>
+          </section>
+
+          <fieldset>
+            <legend>Preferred payment method</legend>
+
+            <div
+              id="pickup-payment-options"
+              hidden
+            >
+              <label class="form-option">
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="Cash at handoff"
+                >
+
+                <span>
+                  <strong>Cash at handoff</strong>
+                </span>
+              </label>
+
+              <label class="form-option">
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="Zelle ahead of pickup"
+                >
+
+                <span>
+                  <strong>Zelle ahead of pickup</strong>
+                </span>
+              </label>
+
+              <label class="form-option">
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="Credit or debit card ahead through Square"
+                >
+
+                <span>
+                  <strong>
+                    Credit or debit card ahead through Square
+                  </strong>
+                </span>
+              </label>
+
+              <label class="form-option">
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="Credit or debit card at handoff through Square"
+                >
+
+                <span>
+                  <strong>
+                    Credit or debit card at handoff through Square
+                  </strong>
+                </span>
+              </label>
+            </div>
+
+            <div
+              id="shipping-payment-options"
+              hidden
+            >
+              <label class="form-option">
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="Zelle"
+                >
+
+                <span>
+                  <strong>Zelle</strong>
+                </span>
+              </label>
+
+              <label class="form-option">
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="Credit or debit card through Square"
+                >
+
+                <span>
+                  <strong>
+                    Credit or debit card through Square
+                  </strong>
+                </span>
+              </label>
+            </div>
+
+            <p
+              class="form-help"
+              id="payment-help"
+            >
+              Payment instructions will only be sent after availability and
+              fulfillment details are confirmed. Remote-payment holds last
+              48 hours after instructions are sent.
+            </p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Additional information</legend>
+
+            <label>
+              Order notes
+
+              <textarea
+                name="orderNotes"
+                rows="5"
+                placeholder="Add any other details or questions here."
+              ></textarea>
+            </label>
+          </fieldset>
+
+          <div class="form-acknowledgment">
+            <label class="form-option">
+              <input
+                type="checkbox"
+                name="pricingAcknowledgment"
+                value="Acknowledged"
+                required
+              >
+
+              <span>
+                I understand that actual shipping charges will be added when
+                applicable, and that an eligible credit-card surcharge may
+                apply to credit-card payments. I will review the complete total
+                before payment.
+              </span>
+            </label>
+          </div>
+
+          <p class="form-privacy">
+            Your information will only be used to process this order request
+            and communicate with you about it.
+          </p>
+
+          <div
+            class="form-status"
+            id="order-form-status"
+            role="status"
+            aria-live="polite"
+            tabindex="-1"
+            hidden
+          ></div>
+
+          <button
+            class="button form-submit"
+            type="submit"
+          >
+            Submit Order Request
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <nav aria-label="Footer navigation">
+        <a href="division.html">Division</a>
+        <a href="faq.html">FAQ</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="site-footer-contact">
+        <a href="mailto:hello@eastportlandchains.com">
+          hello@eastportlandchains.com
+        </a>
+
+        <p>
+          Local pickup information available on request.
+        </p>
+      </div>
+
+      <p class="site-footer-local">
+        Hand assembled in East Portland, Oregon.
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Join the Waitlist | East Portland Chains</title>
+
+  <meta
+    name="description"
+    content="Join the restock waitlist for The Division bike security chain."
+  >
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">
+    Skip to main content
+  </a>
+
+  <header class="site-header">
+    <a class="site-logo" href="index.html">
+      East Portland Chains
+    </a>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="division.html">Division</a>
+      <a href="faq.html">FAQ</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section
+      class="order-page"
+      aria-labelledby="waitlist-page-heading"
+    >
+      <div class="order-page-inner">
+        <p class="section-label">The Division Waitlist</p>
+
+        <h1 id="waitlist-page-heading">
+          Get the restock email.
+        </h1>
+
+        <p
+          class="order-page-intro"
+          id="waitlist-description"
+        >
+          We’ll email you when The Division is back in stock. Restock emails
+          are not reservations, so order while they’re available.
+        </p>
+
+        <form
+          class="order-form"
+          id="division-waitlist-form"
+          aria-describedby="waitlist-description"
+        >
+          <fieldset>
+            <legend>Contact information</legend>
+
+            <div class="form-grid">
+              <label>
+                Name
+
+                <input
+                  type="text"
+                  name="fullName"
+                  autocomplete="name"
+                  required
+                >
+              </label>
+
+              <label>
+                Email address
+
+                <input
+                  type="email"
+                  name="email"
+                  autocomplete="email"
+                  inputmode="email"
+                  required
+                >
+              </label>
+
+              <label>
+                Phone number
+
+                <input
+                  type="tel"
+                  name="phone"
+                  autocomplete="tel"
+                  inputmode="tel"
+                >
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Preferred configuration</legend>
+
+            <label class="form-option">
+              <input
+                type="radio"
+                name="configuration"
+                value="Chain only, $70"
+                required
+              >
+
+              <span>
+                <strong>Chain only, $70</strong>
+              </span>
+            </label>
+
+            <label class="form-option">
+              <input
+                type="radio"
+                name="configuration"
+                value="Chain + Padlock, $95"
+                required
+              >
+
+              <span>
+                <strong>Chain + Padlock, $95</strong>
+              </span>
+            </label>
+          </fieldset>
+
+          <div class="form-acknowledgment">
+            <label class="form-option">
+              <input
+                type="checkbox"
+                name="restockConsent"
+                value="Acknowledged"
+                required
+              >
+
+              <span>
+                I agree to receive an email when The Division is back in stock.
+              </span>
+            </label>
+          </div>
+
+          <p class="form-privacy">
+            Your information will only be used for this restock notification.
+          </p>
+
+          <div
+            class="form-status"
+            id="waitlist-form-status"
+            role="status"
+            aria-live="polite"
+            tabindex="-1"
+            hidden
+          ></div>
+
+          <button
+            class="button form-submit"
+            type="submit"
+          >
+            Join the Waitlist
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <nav aria-label="Footer navigation">
+        <a href="division.html">Division</a>
+        <a href="faq.html">FAQ</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="site-footer-contact">
+        <a href="mailto:hello@eastportlandchains.com">
+          hello@eastportlandchains.com
+        </a>
+
+        <p>
+          Local pickup information available on request.
+        </p>
+      </div>
+
+      <p class="site-footer-local">
+        Hand assembled in East Portland, Oregon.
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
