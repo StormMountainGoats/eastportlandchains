@@ -1,5 +1,5 @@
 const inventoryConfig = {
-  divisionInStock: true
+  divisionInStock: false
 };
 
 const formsWorkerUrl =
