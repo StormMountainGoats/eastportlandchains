@@ -415,3 +415,73 @@ if (waitlistForm) {
     });
   }
 }
+
+/*
+  Contact form
+*/
+
+const contactForm = document.querySelector("#contact-form");
+
+if (contactForm) {
+  const contactFormStatus = contactForm.querySelector(
+    "#contact-form-status"
+  );
+
+  const submitButton = contactForm.querySelector(
+    'button[type="submit"]'
+  );
+
+  /*
+    The button is disabled in the HTML so it cannot be used if
+    JavaScript fails to load. Enable it once this script is running.
+  */
+  if (submitButton) {
+    submitButton.disabled = false;
+  }
+
+  contactForm.addEventListener("input", () => {
+    hideFormStatus(contactFormStatus);
+  });
+
+  contactForm.addEventListener("change", () => {
+    hideFormStatus(contactFormStatus);
+  });
+
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    hideFormStatus(contactFormStatus);
+
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      focusFirstInvalidField(contactForm);
+      return;
+    }
+
+    setSubmitButtonState(submitButton, true);
+
+    try {
+      await submitFormToWorker(contactForm, "contact");
+
+      contactForm.reset();
+      resetTurnstile();
+
+      showFormStatus(
+        contactFormStatus,
+        "Your message has been sent. East Portland Chains will reply by email.",
+        "success"
+      );
+
+      setSubmitButtonState(submitButton, false);
+    } catch (error) {
+      showFormStatus(
+        contactFormStatus,
+        error.message ||
+          "Your message could not be sent. Please try again or email hello@eastportlandchains.com.",
+        "error"
+      );
+
+      resetTurnstile();
+      setSubmitButtonState(submitButton, false);
+    }
+  });
+}

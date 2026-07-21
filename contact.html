@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact | East Portland Chains</title>
+
+  <meta
+    name="description"
+    content="Contact East Portland Chains with questions about The Division, compatibility, availability, local pickup, shipping, or ordering."
+  >
+
+  <link rel="stylesheet" href="assets/css/styles.css?v=contact1">
+
+  <script
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+    async
+    defer
+  ></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">
+    Skip to main content
+  </a>
+
+  <header class="site-header">
+    <a class="site-logo" href="index.html">
+      East Portland Chains
+    </a>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="division.html">Division</a>
+      <a href="faq.html">FAQ</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero" aria-labelledby="contact-heading">
+      <div class="section-inner">
+        <p class="eyebrow">Contact East Portland Chains</p>
+
+        <h1 id="contact-heading">
+          Questions about fit, availability, or ordering?
+        </h1>
+
+        <p>
+          Send a message about The Division, padlock compatibility, pickup,
+          shipping, or anything else not covered in the FAQ.
+        </p>
+      </div>
+    </section>
+
+    <section
+      class="contact-section"
+      aria-labelledby="send-message-heading"
+    >
+      <div class="contact-section-inner">
+        <div class="contact-form-column">
+          <p class="section-label">Send a Message</p>
+
+          <h2 id="send-message-heading">
+            Get in touch directly.
+          </h2>
+
+          <form
+            class="order-form contact-form"
+            id="contact-form"
+            novalidate
+          >
+            <input
+              type="hidden"
+              name="formType"
+              value="contact"
+            >
+
+            <div class="form-grid">
+              <label>
+                Name
+
+                <input
+                  type="text"
+                  id="contact-name"
+                  name="name"
+                  autocomplete="name"
+                  maxlength="100"
+                  required
+                >
+              </label>
+
+              <label>
+                Email
+
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  autocomplete="email"
+                  inputmode="email"
+                  maxlength="254"
+                  required
+                >
+              </label>
+
+              <label class="form-grid-wide">
+                Subject
+
+                <select
+                  id="contact-subject"
+                  name="subject"
+                  required
+                >
+                  <option value="">
+                    Choose a subject
+                  </option>
+
+                  <option value="Product fit or compatibility">
+                    Product fit or compatibility
+                  </option>
+
+                  <option value="Availability or waitlist">
+                    Availability or waitlist
+                  </option>
+
+                  <option value="Local pickup">
+                    Local pickup
+                  </option>
+
+                  <option value="Shipping">
+                    Shipping
+                  </option>
+
+                  <option value="Order question">
+                    Order question
+                  </option>
+
+                  <option value="General question">
+                    General question
+                  </option>
+                </select>
+              </label>
+
+              <label class="form-grid-wide">
+                Message
+
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  rows="7"
+                  maxlength="3000"
+                  required
+                ></textarea>
+              </label>
+            </div>
+
+            <div
+              class="cf-turnstile"
+              data-sitekey="0x4AAAAAAD521rPzq1whVGo3"
+              data-theme="light"
+            ></div>
+
+            <p class="form-privacy">
+              Your information will be used only to respond to this message
+              and handle any related request.
+            </p>
+
+            <p
+              class="form-status"
+              id="contact-form-status"
+              role="status"
+              aria-live="polite"
+              hidden
+            ></p>
+
+            <button
+              class="button form-submit"
+              id="contact-submit"
+              type="submit"
+              disabled
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        <aside
+          class="contact-details"
+          aria-labelledby="contact-details-heading"
+        >
+          <p class="section-label">Email Directly</p>
+
+          <h2 id="contact-details-heading">
+            Prefer email?
+          </h2>
+
+          <p>
+            You can also contact East Portland Chains directly at:
+          </p>
+
+          <a
+            class="contact-email-link"
+            href="mailto:hello@eastportlandchains.com"
+          >
+            hello@eastportlandchains.com
+          </a>
+
+          <p>
+            Messages are reviewed manually. Response times may vary,
+            especially during product assembly and fulfillment.
+          </p>
+
+          <div class="contact-topic-list">
+            <h3>Helpful details to include</h3>
+
+            <ul>
+              <li>
+                Your bicycle type and approximate frame size
+              </li>
+
+              <li>
+                The kind of object you usually lock to
+              </li>
+
+              <li>
+                The padlock model you want to use
+              </li>
+
+              <li>
+                Whether you need local pickup or shipping
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section
+      class="content-section about-cta"
+      aria-labelledby="contact-faq-heading"
+    >
+      <div class="section-inner">
+        <p class="section-label">Before You Send</p>
+
+        <h2 id="contact-faq-heading">
+          Your question may already be answered.
+        </h2>
+
+        <p>
+          The FAQ covers product fit, chain construction, realistic security
+          limits, padlock compatibility, payment, pickup, shipping, and the
+          waitlist.
+        </p>
+
+        <a class="button" href="faq.html">
+          Read the FAQ
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <nav aria-label="Footer navigation">
+        <a href="division.html">Division</a>
+        <a href="faq.html">FAQ</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+      </nav>
+
+      <div class="site-footer-contact">
+        <a href="mailto:hello@eastportlandchains.com">
+          hello@eastportlandchains.com
+        </a>
+
+        <p>
+          Local pickup information available on request.
+        </p>
+      </div>
+
+      <p class="site-footer-local">
+        Hand assembled in East Portland, Oregon.
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=contact1"></script>
+</body>
+</html>
