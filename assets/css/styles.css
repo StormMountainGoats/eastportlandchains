@@ -768,20 +768,104 @@ textarea:focus-visible {
   padding: 5rem 0 6rem;
 }
 
-.product-hero-image {
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
-  padding: 0;
+/* Product photo gallery */
+
+.product-gallery {
+  min-width: 0;
+}
+
+.product-gallery-track {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: var(--black);
   border: 2px solid var(--black);
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--yellow) var(--black);
+  overscroll-behavior-inline: contain;
+}
+
+.product-gallery-track::-webkit-scrollbar {
+  height: 12px;
+}
+
+.product-gallery-track::-webkit-scrollbar-track {
   background: var(--black);
 }
 
-.product-hero-image img {
+.product-gallery-track::-webkit-scrollbar-thumb {
+  background: var(--yellow);
+  border: 2px solid var(--black);
+}
+
+.product-gallery-slide {
+  display: grid;
+  flex: 0 0 100%;
+  grid-template-rows: max-content max-content;
+  align-self: flex-start;
+  min-width: 100%;
+  margin: 0;
+  background: var(--white);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.product-gallery-slide img {
   display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+#division-photo-1 img {
+  object-position: center;
+}
+
+#division-photo-2 img {
   object-position: 55% center;
+}
+
+.product-gallery-slide figcaption {
+  min-height: 64px;
+  padding: 1rem 1.25rem;
+  background: var(--white);
+  color: var(--gray);
+  border-top: 2px solid var(--black);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.product-gallery-navigation {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.product-gallery-navigation a {
+  display: inline-grid;
+  width: 44px;
+  min-height: 44px;
+  place-items: center;
+  background: var(--white);
+  color: var(--black);
+  border: 2px solid var(--black);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.product-gallery-navigation a:hover {
+  background: var(--yellow);
+}
+
+.product-gallery-instruction {
+  margin: 0.75rem 0 0;
+  color: var(--gray);
+  font-size: 0.9rem;
 }
 
 .product-hero-copy h1 {
@@ -1251,12 +1335,13 @@ textarea:focus-visible {
     padding: 3rem 0 4rem;
   }
 
-  .product-hero-image {
+  .product-gallery-slide img {
     aspect-ratio: 4 / 3;
   }
 
-  .product-hero-image img {
-    object-position: 55% center;
+  .product-gallery-slide figcaption {
+    min-height: auto;
+    padding: 0.9rem 1rem;
   }
 
   .product-pricing {
@@ -1384,7 +1469,9 @@ textarea:focus-visible {
   .price-option,
   .stock-status,
   .order-form fieldset,
-  .waitlist-unavailable {
+  .waitlist-unavailable,
+  .product-gallery-track,
+  .product-gallery-navigation a {
     forced-color-adjust: auto;
   }
 

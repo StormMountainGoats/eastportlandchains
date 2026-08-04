@@ -11,7 +11,7 @@
     content="The Division is a five-foot bike security chain hand assembled in East Portland using 7 mm Pewag security chain."
   >
 
-  <link rel="stylesheet" href="assets/css/styles.css?v=images1">
+  <link rel="stylesheet" href="assets/css/styles.css?v=images2">
 </head>
 
 <body>
@@ -37,13 +37,71 @@
       class="product-hero"
       aria-labelledby="division-heading"
     >
-      <div class="product-hero-image">
-        <img
-          src="assets/images/division-cargo-bike-detail.jpg"
-          alt="The Division chain and padlock securing a cargo bike to a large steel post."
-          width="1536"
-          height="1152"
+      <div
+        class="product-gallery"
+        aria-label="Photos of The Division"
+      >
+        <div
+          class="product-gallery-track"
+          tabindex="0"
+          aria-label="Scrollable product photo gallery"
         >
+          <figure
+            class="product-gallery-slide"
+            id="division-photo-1"
+          >
+            <img
+              src="assets/images/division-product-main.jpg"
+              alt="The Division five-foot bike security chain with a black sleeve and brass ABUS padlock."
+              width="1536"
+              height="864"
+            >
+
+            <figcaption>
+              The Division with a compatible ABUS padlock.
+            </figcaption>
+          </figure>
+
+          <figure
+            class="product-gallery-slide"
+            id="division-photo-2"
+          >
+            <img
+              src="assets/images/division-cargo-bike-detail.jpg"
+              alt="The Division chain and padlock securing a cargo bike to a large steel post."
+              width="1536"
+              height="1152"
+              loading="lazy"
+            >
+
+            <figcaption>
+              The Division securing a cargo bike to an oversized steel post.
+            </figcaption>
+          </figure>
+        </div>
+
+        <nav
+          class="product-gallery-navigation"
+          aria-label="Product photo navigation"
+        >
+          <a
+            href="#division-photo-1"
+            aria-label="View the standalone Division product photo"
+          >
+            1
+          </a>
+
+          <a
+            href="#division-photo-2"
+            aria-label="View The Division securing a cargo bike"
+          >
+            2
+          </a>
+        </nav>
+
+        <p class="product-gallery-instruction">
+          Scroll or swipe to see The Division in use.
+        </p>
       </div>
 
       <div class="product-hero-copy">
