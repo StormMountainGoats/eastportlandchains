@@ -394,7 +394,6 @@ textarea:focus-visible {
   line-height: 1;
 }
 
-
 /* About page */
 
 .page-hero {
@@ -770,13 +769,19 @@ textarea:focus-visible {
 }
 
 .product-hero-image {
-  display: grid;
-  min-height: 520px;
-  place-items: center;
-  padding: 2rem;
-  border: 2px dashed var(--black);
-  font-weight: 700;
-  text-align: center;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  padding: 0;
+  border: 2px solid var(--black);
+  background: var(--black);
+}
+
+.product-hero-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 55% center;
 }
 
 .product-hero-copy h1 {
@@ -1247,7 +1252,11 @@ textarea:focus-visible {
   }
 
   .product-hero-image {
-    min-height: 320px;
+    aspect-ratio: 4 / 3;
+  }
+
+  .product-hero-image img {
+    object-position: 55% center;
   }
 
   .product-pricing {
@@ -1285,7 +1294,8 @@ textarea:focus-visible {
   .form-submit {
     width: 100%;
   }
-    .faq-section-inner {
+
+  .faq-section-inner {
     padding: 4rem 0;
   }
 
@@ -1301,7 +1311,8 @@ textarea:focus-visible {
   .faq-answer {
     padding: 1rem;
   }
-    .contact-section-inner {
+
+  .contact-section-inner {
     grid-template-columns: 1fr;
     gap: 3rem;
     padding: 4rem 0;
@@ -1334,7 +1345,8 @@ textarea:focus-visible {
   .division-preview-copy h2 {
     font-size: clamp(2rem, 12vw, 3.25rem);
   }
-    .faq-section h2 {
+
+  .faq-section h2 {
     font-size: clamp(2rem, 12vw, 3.25rem);
   }
 
