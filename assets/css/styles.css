@@ -1479,3 +1479,44 @@ textarea:focus-visible {
     outline: 3px solid Highlight;
   }
 }
+/* Homepage product photography */
+
+.hero-product-image {
+  display: block;
+  min-height: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  padding: 0;
+  background: var(--black);
+  border: 2px solid var(--black);
+}
+
+.hero-product-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.division-preview-gallery {
+  min-width: 0;
+}
+
+.division-preview-gallery .gallery-image-action {
+  object-position: 55% center;
+}
+
+.division-preview-gallery .gallery-image-product {
+  object-position: center;
+}
+
+@media (max-width: 750px) {
+  .hero-product-image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .hero-product-image img {
+    object-position: center;
+  }
+}
